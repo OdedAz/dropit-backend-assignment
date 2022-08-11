@@ -1,0 +1,28 @@
+{
+  "availableTimeSlots": [
+    {
+      "id": "1",
+      "start_time": "",
+      "end_time": "",
+      "supported_addresses": ["6783800", "6783900", "6783801"]
+    },
+    {
+      "id": "2",
+      "start_time": "",
+      "end_time": "",
+      "supported_addresses": ["6783800", "6783801"]
+    },
+    {
+      "id": "3",
+      "start_time": "",
+      "end_time": "",
+      "supported_addresses": ["6783801"]
+    },
+    {
+      "id": "4",
+      "start_time": "",
+      "end_time": "",
+      "supported_addresses": ["6783800", "6783900", "6783801"]
+    }
+  ]
+}
