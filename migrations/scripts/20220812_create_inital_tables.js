@@ -4,16 +4,17 @@ exports.up = function (knex) {
     .createTable("deliveries", (table) => {
       table.increments("id").notNullable().primary();
       table.string("status").notNullable();
-      table.text("start_time").notNullable();
-      table.integer("end_time").nullable();
       table.integer("time_slot_id").nullable();
-      table.timestamps(true, true)
+      table.timestamps(true, true);
     })
-    .createTable("empty_time_slots", (table) => {
+    .createTable("occupied_time_slots", (table) => {
       table.increments("id").notNullable().primary();
-      table.text("start_time").notNullable();
-      table.integer("end_time").nullable();
-      table.timestamps(true, true)
+      table.string("start_time").notNullable();
+      table.string("status").notNullable();
+      table.string("end_time").nullable();
+      table.integer("user_id").notNullable();
+      table.integer("business_id").notNullable();
+      table.timestamps(true, true);
     })
     .createTable("supported_addresses", (table) => {
       table.integer("time_slot_id").notNullable();
@@ -23,5 +24,11 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-  return knex.schema.withSchema("dbo").dropTableIfExists("deliveries","empty_time_slots","supported_addresses");
+  return knex.schema
+    .withSchema("dbo")
+    .dropTableIfExists("knex_migrations")
+    .dropTableIfExists("knex_migrations_lock")
+    .dropTableIfExists("deliveries")
+    .dropTableIfExists("occupied_time_slots")
+    .dropTableIfExists("supported_addresses");
 };
