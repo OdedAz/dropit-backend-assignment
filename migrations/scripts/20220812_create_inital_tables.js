@@ -4,7 +4,7 @@ exports.up = function (knex) {
     .createTable("deliveries", (table) => {
       table.increments("id").notNullable().primary();
       table.string("status").notNullable();
-      table.integer("time_slot_id").nullable();
+      table.integer("time_slot_id").notNullable();
       table.timestamps(true, true);
     })
     .createTable("occupied_time_slots", (table) => {
