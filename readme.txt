@@ -1,8 +1,6 @@
-* in order to run the db on docker we run this line
-docker run -e "ACCEPT_EULA=1" -e "MSSQL_SA_PASSWORD=pass" -e "MSSQL_PID=Developer" -e "MSSQL_USER=dropit" -p 1433:1433 -d mcr.microsoft.com/azure-sql-edge
+* in order to run the db on docker run this line in cmd/terminal
 
-* in order to build the tables in the DB we will run this scripts
+docker run --name dropit-backend -p 5432:5432 -e POSTGRES_USER=user -e POSTGRES_PASSWORD=pass -e POSTGRES_DB=postgresDB -d postgres
 
-
-
-docker run -e "ACCEPT_EULA=1" -e "MSSQL_SA_PASSWORD=Password12#" -e "MSSQL_PID=Developer" -e "MSSQL_USER=testUser" -p 1433:1433 -d --name=dropitDB mcr.microsoft.com/azure-sql-edge
+* in order to build the tables in the DB run in cmd/terminal
+npm run migrate

@@ -26,9 +26,6 @@ exports.up = function (knex) {
 exports.down = function (knex) {
   return knex.schema
     .withSchema('dbo')
-    .dropTableIfExists('knex_migrations')
-    .dropTableIfExists('knex_migrations_lock')
     .dropTableIfExists('deliveries')
-    .dropTableIfExists('occupied_time_slots')
     .dropTableIfExists('supported_addresses')
 }
